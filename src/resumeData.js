@@ -94,12 +94,12 @@ let resumeData = {
     ],
     "testimonials":[
       {
-        "description":"This is a sample testimonial",
-        "name":"Some technical guy"
+        "description":"20% of effort will allow you to learn 80% of things, however the mastery happens when you put 80% of effort to learn the remaining 20% of things.",
+        "name":"Pareto Principle"
       },
       {
-        "description":"This is a sample testimonial",
-        "name":"Some technical guy"
+        "description":"Strive not to be a success, but rather to be of value.",
+        "name":"Albert Einstein"
       }
     ]
   }

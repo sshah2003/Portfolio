@@ -1,11 +1,11 @@
 let resumeData = {
     "imagebaseurl":"https://rbhatia46.github.io/",
     "name": "Sohil Shah",
-    "role": "Student at George Mason University",
+    "role": "Senior @ George Mason University",
     "linkedinId":" Sshah55@gmu.edu",
     "phoneNumber": " 703-439-9634",
     "Instagramid": "Your InstagramId",
-    "roleDescription": " I am currently looking for entry level Software Engineering internships. I enjoy front-end developing and Mobile App Development, however I am very open to learning new technologies to further my growth as a Software Engineer.",
+    "roleDescription": " I am currently looking for a full time, new grad Software Engineer job. I enjoy front-end and IOS development, however I am very open to learning new technologies to further my growth as a Software Engineer.",
     "socialLinks":[
         {
           "name":"linkedin",
@@ -23,7 +23,7 @@ let resumeData = {
           "className":"fa fa-instagram"
         }
       ],
-    "aboutme":"I am currently a upcoming Junior at George Mason University. I am majoring in Computer Science and am projected to graduate in 2025. I am very eager to get real life work experience to further my journey as a potential software engineer. I am very flexible and open to many different fields within computer science, currently I am diving into Game Development, however front-end development along with mobile app development have been my center focus recently. On the side I am a freelance photographer, ranging from portraits of people, families, pets, etc. to a nature and travel photographer.",
+    "aboutme":"I am currently a Senior at George Mason University. I am majoring in Computer Science and am projected to graduate in May 2025. I am currently looking for a full time job that will push me and give me a fast paced environment with interesting work. I am very flexible and open to many different fields within computer science. Outside of work I really enjoy sports and being in the outdoors, currently my obession has been with golf even though I suck." ,
     "address":"Washington D.C Area",
     "website":"sshah55@gmu.edu || 703-439-9634",
     "education":[
@@ -43,11 +43,18 @@ let resumeData = {
     ],
     "work":[
       {
-        "CompanyName":"George Mason University College of Engineering and Computing",
-        "specialization":"Teacher Assistant",
-        "MonthOfLeaving":"June",
-        "YearOfLeaving":"2019 - September 2019",
-        "Achievements":"I Assisted in teaching as well as attending to middle school students for any questions, concerns, or help that was needed regarding the HTML language. I would present lectures to them and teach them or I would be guiding them through assignments and projects that were given by the main instructor. It helped relieve stress off the main instructor with the many kids that were there, and helped the students learn a different and more visual way to code HTML."
+        "CompanyName":"The Washington Post",
+        "specialization":"Software Engineer Intern - Ad Engineering",
+        "MonthOfLeaving":"Jun",
+        "YearOfLeaving":"2024 - Aug 2024",
+        "Achievements":"Engineered a targeting page for DevTools, improving ad monitoring efficiency by 20% and streamlining client communication across 5 departments using React and Node.js. Designed and implemented a system that deciphers and translates ad and article themes, reducing team miscommunication by 30 and facilitating faster decision-making processes. Developed analytical tools to enable teams to understand ad display patterns, leading to a 15 improvement in brand safety and ad suitability by ensuring alignment for clients with relevant content.",
+      },
+      {
+        "CompanyName":"George Mason University",
+        "specialization":"Student Lecturer/Instructor - CS 395 Intro into IOS Development",
+        "MonthOfLeaving":"May",
+        "YearOfLeaving":"2024 - Current",
+        "Achievements":"Developed and assessed programming assignments, projects, and quizzes, teaching 20+ students critical skills in creating dynamic, responsive iOS applications, with a 95% average student satisfaction rate. Successfully introduced 20+ students to foundational iOS development technologies, resulting in a massive improvement in overall course comprehension and practical application of Swift UI, UIKit, and API requests.",
       },
     ],
     "skillsDescription":"HTML, CSS, Python, OOP Java, JavaScript, Node.js, React, Git, Github, Redux, Rest API, Photoshop, Excel, Multilingual, Flexible, Vite, Three.js, Blender, Agile Development, MongoDB, TailwindCSS, Prisma, NextJS, NextAuth, Vercel, Data Structures, Swift UI",

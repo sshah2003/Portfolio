@@ -84,25 +84,25 @@ let resumeData = {
       {
         "name":"Wordle",
         "description":"Recreated the popular game Wordle using Swift through the CodePath course",
-        "imgurl":"images/portfolio/jamming.jpg",
+        "imgurl":"images/portfolio/wordle.jpg",
         "url":"https://github.com/sshah2003/Wordle"
       },
       {
         "name":"Tasks App",
         "description":"IOS app that allows users to create to-do lists and interact with them, as well as view them on a calendar view which keeps consistent with the to-do list.",
-        "imgurl":"images/portfolio/Netflix.jpg",
+        "imgurl":"images/portfolio/todolist.jpg",
         "url":"https://github.com/sshah2003/Tasks-App"
       },
       {
         "name":"FireLine",
         "description":"A comprehensive North American fire mapping system combines 1.88 million data logs with real-time user-submitted photos and machine learning to display fire locations, sizes, and statuses, while predicting fire spread and offering detailed information on individual fires.",  
-        "imgurl":"images/portfolio/cs.jpg",
+        "imgurl":"images/portfolio/fireline.jpg",
         "url":"https://github.com/krizh-p/Fireline",
       },
       {
         "name":"AI Pacman",
         "description":"Intro AI project that completes different size and types of pacman maps.",
-        "imgurl":"images/portfolio/wip.jpg",
+        "imgurl":"images/portfolio/pacman.jpg",
         "url":"https://github.com/sshah2003/HW1",
       }
     ],

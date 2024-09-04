@@ -21,6 +21,11 @@ let resumeData = {
           "name":"Instagram",
           "url":"https://www.instagram.com/sohil._shah/",
           "className":"fa fa-instagram"
+        },
+        {
+          "name":"Twitter",
+          "url":"https://x.com/TheSohilShah",
+          "className":"fa fa-twitter"
         }
       ],
     "aboutme":"I am currently a Senior at George Mason University. I am majoring in Computer Science and am projected to graduate in May 2025. I am currently looking for a full time job that will push me and give me a fast paced environment with interesting work. I am very flexible and open to many different fields within computer science. Outside of work I really enjoy sports and being in the outdoors, currently my obession has been with golf even though I suck." ,
@@ -57,46 +62,48 @@ let resumeData = {
         "Achievements":"Developed and assessed programming assignments, projects, and quizzes, teaching 20+ students critical skills in creating dynamic, responsive iOS applications, with a 95% average student satisfaction rate. Successfully introduced 20+ students to foundational iOS development technologies, resulting in a massive improvement in overall course comprehension and practical application of Swift UI, UIKit, and API requests.",
       },
     ],
-    "skillsDescription":"HTML, CSS, Python, OOP Java, JavaScript, Node.js, React, Git, Github, Redux, Rest API, Photoshop, Excel, Multilingual, Flexible, Vite, Three.js, Blender, Agile Development, MongoDB, TailwindCSS, Prisma, NextJS, NextAuth, Vercel, Data Structures, Swift UI",
+    "skillsDescription":"TypeScript, Swift, Java, Python, JavaScript, C, SQL, Kotlin, UIKit, HTML, CSS, ReactJS, NodeJS, Redux, ThreeJS, NextJS, SciKit, Django, Open AI, Git/GitHub, MongoDB, Vercel, Vite, Storybook, NPM, Postman, Linux || Awards: Eagle Scout Boy Scouts of America, Intro to IOS Development CodePath Certificate",
     "skills":[
       {
-        "skillname":"JavaScript"
+        "skillname":"Typescript"
       },
       {
-        "skillname":"CSS"
+        "skillname":"Python"
       },
       {
-        "skillname":"Reactjs"
-      },
-      {
-        "skillname":"DSA"
+        "skillname":"Swift"
       },
       {
         "skillname":"Java"
+      },
+      {
+        "skillname":"C"
       }
     ],
     "portfolio":[
       {
-        "name":"Jamming",
-        "description":"Created a Spotify React web app using the Spotify API to build a website that allows users to search the Spotify library, create a custom playlist, and then save it to their Spotify account. Used the Spotify API in the search bar when searching for a song and used react to create and add the song column and the and remove songs to the playlist column.",
+        "name":"Wordle",
+        "description":"Recreated the popular game Wordle using Swift through the CodePath course",
         "imgurl":"images/portfolio/jamming.jpg",
-        "url":"https://jammming-five.vercel.app/"
+        "url":"https://github.com/sshah2003/Wordle"
       },
       {
-        "name":"Netflix Clone",
-        "description":"Using React, NextJS, TailwindCSS, and Prisma, I created a web app that feels and acts like the Netflix app. The database creation was done through MongoDB, and using NextAuth I was able to add google and github login options alongside the typical email login option to create an authorization system. It is fully responsive and uses API and controller creation. It also contains React SWR data fetching to constantly update the data and uses Zustand state management and finally used Vercel for the deployment of the Netflix clone",
+        "name":"Tasks App",
+        "description":"IOS app that allows users to create to-do lists and interact with them, as well as view them on a calendar view which keeps consistent with the to-do list.",
         "imgurl":"images/portfolio/Netflix.jpg",
-        "url":"https://netflix-clone-vert-two.vercel.app/auth"
+        "url":"https://github.com/sshah2003/Tasks-App"
       },
       {
-        "name":"Study App",
-        "description":"This is a mobile app that I created using Swift io in order to help me study for my CS classes such as DSA and OOP programming in a more efficient and helping manner.",  
-        "imgurl":"images/portfolio/cs.jpg"
+        "name":"FireLine",
+        "description":"A comprehensive North American fire mapping system combines 1.88 million data logs with real-time user-submitted photos and machine learning to display fire locations, sizes, and statuses, while predicting fire spread and offering detailed information on individual fires.",  
+        "imgurl":"images/portfolio/cs.jpg",
+        "url":"https://github.com/krizh-p/Fireline",
       },
       {
-        "name":"VegOut",
-        "description":"This is a work in progress app that I am creating in order to make it easier for vegetarians and vegans to find food around the US and hopefully the world. It will use mapping and menu APis to find the most popular vegetarian and vegan restaurants and will find the most popular items on the menu and more.",
-        "imgurl":"images/portfolio/wip.jpg"
+        "name":"AI Pacman",
+        "description":"Intro AI project that completes different size and types of pacman maps.",
+        "imgurl":"images/portfolio/wip.jpg",
+        "url":"https://github.com/sshah2003/HW1",
       }
     ],
     "testimonials":[

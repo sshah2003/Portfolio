@@ -1,11 +1,13 @@
 let resumeData = {
     "imagebaseurl":"https://rbhatia46.github.io/",
     "name": "Sohil Shah",
-    "role": "Senior @ George Mason University",
+    "role": "Software Engineer 1 @ The Washington Post",
     "linkedinId":" Sshah55@gmu.edu",
     "phoneNumber": " 703-439-9634",
+    "email": "Sshah55@gmu.edu",
+    "resumeUrl": "/resume.pdf",
     "Instagramid": "Your InstagramId",
-    "roleDescription": " I am currently looking for a full time, new grad Software Engineer job. I enjoy front-end and IOS development, however I am very open to learning new technologies to further my growth as a Software Engineer.",
+    "roleDescription": " I'm a Software Engineer at The Washington Post specializing in iOS development and web technologies. Passionate about building intuitive, user-friendly applications and currently working on innovative personal projects.",
     "socialLinks":[
         {
           "name":"linkedin",
@@ -28,7 +30,7 @@ let resumeData = {
           "className":"fa fa-twitter"
         }
       ],
-    "aboutme":"I am currently a Senior at George Mason University. I am majoring in Computer Science and am projected to graduate in May 2025. I am currently looking for a full time job that will push me and give me a fast paced environment with interesting work. I am very flexible and open to many different fields within computer science. Outside of work I really enjoy sports and being in the outdoors, currently my obession has been with golf even though I suck." ,
+    "aboutme":"I'm a Software Engineer 1 at The Washington Post, where I build innovative solutions for ad engineering and digital products. With a strong foundation in iOS development and web technologies, I specialize in creating seamless, responsive applications that delight users. I graduated from George Mason University with a B.S. in Computer Science in May 2025. I'm proficient in Swift, TypeScript, React, and modern web frameworks. When I'm not coding, you'll find me working on personal projects, golfing, or exploring the outdoors." ,
     "address":"Washington D.C Area",
     "website":"sshah55@gmu.edu || 703-439-9634",
     "education":[
@@ -49,35 +51,75 @@ let resumeData = {
     "work":[
       {
         "CompanyName":"The Washington Post",
+        "specialization":"Software Engineer 1",
+        "MonthOfLeaving":"Sep",
+        "YearOfLeaving":"2024 - Present",
+        "Achievements":"Building and maintaining scalable web applications and iOS solutions for one of the world's leading news organizations. Working on ad engineering, content delivery, and user experience optimization. Collaborating with cross-functional teams to deliver high-quality software that serves millions of users daily.",
+        "current": true
+      },
+      {
+        "CompanyName":"The Washington Post",
         "specialization":"Software Engineer Intern - Ad Engineering",
         "MonthOfLeaving":"Jun",
         "YearOfLeaving":"2024 - Aug 2024",
-        "Achievements":"Engineered a targeting page for DevTools, improving ad monitoring efficiency by 20% and streamlining client communication across 5 departments using React and Node.js. Designed and implemented a system that deciphers and translates ad and article themes, reducing team miscommunication by 30 and facilitating faster decision-making processes. Developed analytical tools to enable teams to understand ad display patterns, leading to a 15 improvement in brand safety and ad suitability by ensuring alignment for clients with relevant content.",
+        "Achievements":"Engineered a targeting page for DevTools, improving ad monitoring efficiency by 20% and streamlining client communication across 5 departments using React and Node.js. Designed and implemented a system that deciphers and translates ad and article themes, reducing team miscommunication by 30% and facilitating faster decision-making processes. Developed analytical tools to enable teams to understand ad display patterns, leading to a 15% improvement in brand safety and ad suitability.",
       },
       {
         "CompanyName":"George Mason University",
-        "specialization":"Student Lecturer/Instructor - CS 395 Intro into IOS Development",
+        "specialization":"Student Lecturer/Instructor - CS 395 Intro into iOS Development",
         "MonthOfLeaving":"May",
-        "YearOfLeaving":"2024 - Current",
-        "Achievements":"Developed and assessed programming assignments, projects, and quizzes, teaching 20+ students critical skills in creating dynamic, responsive iOS applications, with a 95% average student satisfaction rate. Successfully introduced 20+ students to foundational iOS development technologies, resulting in a massive improvement in overall course comprehension and practical application of Swift UI, UIKit, and API requests.",
+        "YearOfLeaving":"2024 - Aug 2024",
+        "Achievements":"Developed and assessed programming assignments, projects, and quizzes, teaching 20+ students critical skills in creating dynamic, responsive iOS applications, with a 95% average student satisfaction rate. Successfully introduced 20+ students to foundational iOS development technologies, resulting in massive improvement in overall course comprehension and practical application of SwiftUI, UIKit, and API requests.",
       },
     ],
-    "skillsDescription":"TypeScript, Swift, Java, Python, JavaScript, C, SQL, Kotlin, UIKit, HTML, CSS, ReactJS, NodeJS, Redux, ThreeJS, NextJS, SciKit, Django, Open AI, Git/GitHub, MongoDB, Vercel, Vite, Storybook, NPM, Postman, Linux || Awards: Eagle Scout Boy Scouts of America, Intro to IOS Development CodePath Certificate",
+    "skillsDescription":"Proficient in iOS development with Swift, UIKit, and SwiftUI. Expert in modern web development using TypeScript, React, Node.js, and Next.js. Strong foundation in computer science fundamentals and software engineering best practices.",
     "skills":[
       {
-        "skillname":"Typescript"
+        "skillname":"iOS Development",
+        "category": "mobile",
+        "description": "Swift, UIKit, SwiftUI, Xcode"
       },
       {
-        "skillname":"Python"
+        "skillname":"Web Development",
+        "category": "web",
+        "description": "React, TypeScript, Node.js, Next.js, HTML/CSS"
       },
       {
-        "skillname":"Swift"
+        "skillname":"Languages",
+        "category": "programming",
+        "description": "TypeScript, Swift, Python, Java, JavaScript, SQL"
       },
       {
-        "skillname":"Java"
+        "skillname":"Tools & Technologies",
+        "category": "tools",
+        "description": "Git, MongoDB, Redux, Vercel, Postman, Linux"
       },
       {
-        "skillname":"C"
+        "skillname":"Frameworks",
+        "category": "frameworks",
+        "description": "React, Node.js, Next.js, Django, Three.js"
+      }
+    ],
+    "highlights": [
+      {
+        "title": "iOS Development",
+        "icon": "📱",
+        "description": "Building native iOS apps with Swift, UIKit, and SwiftUI"
+      },
+      {
+        "title": "Web Development",
+        "icon": "🌐",
+        "description": "Creating responsive, modern web applications"
+      },
+      {
+        "title": "Currently Working",
+        "icon": "💼",
+        "description": "Software Engineer 1 at The Washington Post"
+      },
+      {
+        "title": "Personal Projects",
+        "icon": "🚀",
+        "description": "Always building and learning new technologies"
       }
     ],
     "portfolio":[

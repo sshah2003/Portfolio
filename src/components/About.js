@@ -1,44 +1,91 @@
 import React, { Component } from 'react';
+import './About.css';
+
 export default class About extends Component {
   render() {
     let resumeData = this.props.resumeData;
     return (
-      <section id="about">
-         <div className="row">
-
-            <div className="three columns">
-
-               <img className="profile-pic"  src="images/profilepic.jpg" alt="" />
-
+      <section id="about" className="about-section">
+        <div className="container">
+          <div className="about-content">
+            {/* About Me */}
+            <div className="about-intro">
+              <h2 className="heading-lg mb-3">About Me</h2>
+              <p className="text-body mb-4">
+                {resumeData.aboutme}
+              </p>
             </div>
 
-            <div className="nine columns main-col">
-
-               <h2>About Me</h2>
-               <p>
-               {
-                 resumeData.aboutme
-               }
-               </p>
-
-               <div className="row">
-
-                  <div className="columns contact-details">
-
-                  <h2>Contact Details</h2>
-                  <p className="address">
-       						<span>{resumeData.name}</span>
-                     <br></br>
-       						   <span>
-                     {resumeData.address}
-                    </span>
-                    <br></br>
-                    <span>{resumeData.website}</span>
-       					   </p>
+            {/* Highlights Grid */}
+            {resumeData.highlights && resumeData.highlights.length > 0 && (
+              <div className="highlights-grid">
+                {resumeData.highlights.map((highlight, index) => (
+                  <div key={index} className="notion-card highlight-card fade-in">
+                    <div className="icon-container">
+                      {highlight.icon}
+                    </div>
+                    <h3 className="heading-sm">{highlight.title}</h3>
+                    <p className="text-small">{highlight.description}</p>
                   </div>
-               </div>
+                ))}
+              </div>
+            )}
+
+            {/* Skills Section */}
+            <div className="skills-section mt-5">
+              <h2 className="heading-md mb-3">Skills & Technologies</h2>
+              <p className="text-body mb-4">{resumeData.skillsDescription}</p>
+
+              <div className="skills-grid">
+                {resumeData.skills && resumeData.skills.map((skill, index) => (
+                  <div key={index} className="notion-card skill-card">
+                    <h4 className="skill-title">{skill.skillname}</h4>
+                    {skill.description && (
+                      <p className="text-small">{skill.description}</p>
+                    )}
+                    {skill.category && (
+                      <span className="badge badge-primary">{skill.category}</span>
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
-         </div>
+
+            {/* Contact Details */}
+            <div className="contact-info-section mt-5">
+              <div className="notion-card">
+                <h3 className="heading-md mb-3">Let's Connect</h3>
+                <div className="contact-info-grid">
+                  <div className="contact-info-item">
+                    <div className="contact-icon">📍</div>
+                    <div>
+                      <div className="text-small" style={{color: '#787774', marginBottom: '4px'}}>Location</div>
+                      <div className="text-body">{resumeData.address}</div>
+                    </div>
+                  </div>
+                  <div className="contact-info-item">
+                    <div className="contact-icon">✉️</div>
+                    <div>
+                      <div className="text-small" style={{color: '#787774', marginBottom: '4px'}}>Email</div>
+                      <a href={`mailto:${resumeData.email}`} className="text-body contact-link">
+                        {resumeData.email}
+                      </a>
+                    </div>
+                  </div>
+                  <div className="contact-info-item">
+                    <div className="contact-icon">📱</div>
+                    <div>
+                      <div className="text-small" style={{color: '#787774', marginBottom: '4px'}}>Phone</div>
+                      <a href={`tel:${resumeData.phoneNumber}`} className="text-body contact-link">
+                        {resumeData.phoneNumber}
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
     );
   }

@@ -11,7 +11,7 @@ export default class Resume extends Component {
           <div className="section-header text-center mb-5">
             <h2 className="heading-lg mb-2">Experience & Education</h2>
             <p className="text-body">My professional journey and academic background</p>
-            <div className="mt-3">
+            <div className="mt-3 metro-button-wrapper">
               <a
                 href={resumeData.resumeUrl}
                 className="notion-button notion-button-primary"

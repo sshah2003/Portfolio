@@ -5,17 +5,20 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid transparent;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
   transition: all 0.3s ease;
 }
 
 .modern-nav.scrolled {
-  background: rgba(255, 255, 255, 0.95);
-  border-bottom-color: #e9e9e7;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  background: rgba(255, 255, 255, 0.75);
+  border-bottom-color: rgba(233, 233, 231, 0.8);
+  box-shadow:
+    0 0 20px rgba(255, 255, 255, 0.6),
+    0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .nav-content {

@@ -1,50 +1,140 @@
 .resume-section {
   padding: 80px 0;
   background: var(--bg-primary);
+  position: relative;
+}
+
+.resume-section .container {
+  position: relative;
+  z-index: 1;
 }
 
 .section-header {
   margin-bottom: 48px;
+  position: relative;
 }
 
-.experience-section {
-  margin-bottom: 64px;
-}
 
 .timeline {
   position: relative;
   padding-left: 0;
 }
 
+/* DC Metro style lines - Orange, Silver, Blue */
+/* Orange Line - vertical through timeline */
 .timeline::before {
   content: '';
   position: absolute;
   left: 20px;
-  top: 24px;
-  bottom: 24px;
-  width: 2px;
-  background: var(--border-color);
+  top: 0;
+  bottom: 0;
+  width: 9px;
+  background: #E87722; /* DC Metro Orange Line */
+  border-radius: 4px;
+  box-shadow: 0 0 12px rgba(232, 119, 34, 0.4);
+  z-index: -1;
+}
+
+/* Silver Line - vertical through timeline */
+.timeline::after {
+  content: '';
+  position: absolute;
+  left: 48px;
+  top: 0;
+  bottom: 0;
+  width: 9px;
+  background: #9D9FA2; /* DC Metro Silver Line */
+  border-radius: 4px;
+  box-shadow: 0 0 12px rgba(157, 159, 162, 0.4);
+  z-index: -1;
+}
+
+/* Blue Line - vertical through timeline */
+.experience-section::before {
+  content: '';
+  position: absolute;
+  left: 76px;
+  top: 80px;
+  height: calc(100% - 144px);
+  width: 9px;
+  background: #1A8FE3; /* DC Metro Blue Line */
+  border-radius: 4px;
+  box-shadow: 0 0 12px rgba(26, 143, 227, 0.4);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.experience-section {
+  margin-bottom: 64px;
+  position: relative;
+  z-index: 5;
 }
 
 .timeline-item {
   position: relative;
-  padding-left: 60px;
-  margin-bottom: 24px;
-  padding: 24px 24px 24px 60px;
+  padding-left: 110px;
+  margin-bottom: 48px;
+  padding: 24px 24px 24px 110px;
+  z-index: 5;
+  background: var(--bg-primary);
+  transition: all 0.3s ease;
 }
 
+/* Metro station stop indicator */
 .timeline-item::before {
   content: '';
   position: absolute;
-  left: 15px;
+  left: 38px;
   top: 32px;
-  width: 12px;
-  height: 12px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
-  background: var(--accent-primary);
-  border: 3px solid var(--bg-primary);
-  box-shadow: 0 0 0 2px var(--accent-primary);
-  z-index: 1;
+  background: white;
+  border: 5px solid #E87722; /* Orange line color */
+  box-shadow:
+    0 0 0 2px white,
+    0 0 18px rgba(232, 119, 34, 0.6),
+    0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 2;
+}
+
+/* Alternate station colors for variety */
+.timeline-item:nth-child(2)::before {
+  border-color: #9D9FA2; /* Silver line */
+  box-shadow:
+    0 0 0 2px white,
+    0 0 18px rgba(157, 159, 162, 0.6),
+    0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.timeline-item:nth-child(3)::before {
+  border-color: #1A8FE3; /* Blue line */
+  box-shadow:
+    0 0 0 2px white,
+    0 0 18px rgba(26, 143, 227, 0.6),
+    0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Hover effects - Different color glow for each card */
+.timeline-item:nth-child(1):hover {
+  box-shadow:
+    0 0 30px rgba(232, 119, 34, 0.4),
+    0 8px 16px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.timeline-item:nth-child(2):hover {
+  box-shadow:
+    0 0 30px rgba(157, 159, 162, 0.5),
+    0 8px 16px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.timeline-item:nth-child(3):hover {
+  box-shadow:
+    0 0 30px rgba(26, 143, 227, 0.4),
+    0 8px 16px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
 }
 
 .current-badge {
@@ -100,6 +190,8 @@
 
 .education-section {
   margin-top: 48px;
+  position: relative;
+  z-index: 5;
 }
 
 .education-grid {
@@ -111,6 +203,8 @@
 .education-card {
   padding: 32px 24px;
   text-align: center;
+  position: relative;
+  z-index: 5;
 }
 
 .education-icon {
@@ -133,16 +227,31 @@
     padding: 60px 0;
   }
 
+  /* Adjust metro lines for mobile */
   .timeline::before {
     left: 12px;
+    width: 6px;
+  }
+
+  .timeline::after {
+    left: 30px;
+    width: 6px;
+  }
+
+  .experience-section::before {
+    left: 48px;
+    width: 6px;
   }
 
   .timeline-item {
-    padding-left: 48px;
+    padding-left: 80px;
   }
 
   .timeline-item::before {
-    left: 7px;
+    left: 24px;
+    width: 24px;
+    height: 24px;
+    border-width: 4px;
   }
 
   .timeline-meta {
@@ -156,7 +265,30 @@
 }
 
 @media (max-width: 480px) {
+  /* Further adjust metro lines for very small screens */
+  .timeline::before {
+    left: 10px;
+    width: 5px;
+  }
+
+  .timeline::after {
+    left: 25px;
+    width: 5px;
+  }
+
+  .experience-section::before {
+    left: 40px;
+    width: 5px;
+  }
+
   .timeline-item {
-    padding: 20px 16px 20px 40px;
+    padding: 20px 16px 20px 68px;
+  }
+
+  .timeline-item::before {
+    left: 18px;
+    width: 22px;
+    height: 22px;
+    border-width: 4px;
   }
 }

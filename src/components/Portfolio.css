@@ -44,6 +44,48 @@
   transform: scale(1.05);
 }
 
+/* iPhone Mockup for Classmate Project (First Project) */
+.project-card:first-child .project-image {
+  background: #000;
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 240px;
+}
+
+/* iPhone notch at top */
+.project-card:first-child .project-image::before {
+  content: '';
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 6px;
+  background: #1a1a1a;
+  border-radius: 3px;
+  z-index: 2;
+}
+
+.project-card:first-child .project-image img {
+  width: auto;
+  height: calc(100% - 8px);
+  max-width: 90%;
+  object-fit: contain;
+  border-radius: 20px;
+  box-shadow:
+    0 0 0 3px #1f1f1f,
+    0 10px 40px rgba(0, 0, 0, 0.5);
+  position: relative;
+  z-index: 1;
+}
+
+.project-card:first-child:hover .project-image img {
+  transform: scale(1.02);
+}
+
 .project-content {
   flex: 1;
   display: flex;
@@ -117,11 +159,40 @@
   .project-image {
     height: 180px;
   }
+
+  /* iPhone mockup adjustments for tablet */
+  .project-card:first-child .project-image {
+    height: 220px;
+    padding: 12px;
+  }
+
+  .project-card:first-child .project-image::before {
+    width: 70px;
+    top: 16px;
+  }
 }
 
 @media (max-width: 480px) {
   .project-image {
     height: 160px;
+  }
+
+  /* iPhone mockup adjustments for mobile */
+  .project-card:first-child .project-image {
+    height: 200px;
+    padding: 10px;
+  }
+
+  .project-card:first-child .project-image::before {
+    width: 60px;
+    height: 5px;
+    top: 14px;
+  }
+
+  .project-card:first-child .project-image img {
+    box-shadow:
+      0 0 0 2px #1f1f1f,
+      0 8px 30px rgba(0, 0, 0, 0.5);
   }
 
   .project-header {

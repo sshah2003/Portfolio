@@ -50,40 +50,6 @@ export default class About extends Component {
                 ))}
               </div>
             </div>
-
-            {/* Contact Details */}
-            <div className="contact-info-section mt-5">
-              <div className="notion-card">
-                <h3 className="heading-md mb-3">Let's Connect</h3>
-                <div className="contact-info-grid">
-                  <div className="contact-info-item">
-                    <div className="contact-icon">📍</div>
-                    <div>
-                      <div className="text-small" style={{color: '#787774', marginBottom: '4px'}}>Location</div>
-                      <div className="text-body">{resumeData.address}</div>
-                    </div>
-                  </div>
-                  <div className="contact-info-item">
-                    <div className="contact-icon">✉️</div>
-                    <div>
-                      <div className="text-small" style={{color: '#787774', marginBottom: '4px'}}>Email</div>
-                      <a href={`mailto:${resumeData.email}`} className="text-body contact-link">
-                        {resumeData.email}
-                      </a>
-                    </div>
-                  </div>
-                  <div className="contact-info-item">
-                    <div className="contact-icon">📱</div>
-                    <div>
-                      <div className="text-small" style={{color: '#787774', marginBottom: '4px'}}>Phone</div>
-                      <a href={`tel:${resumeData.phoneNumber}`} className="text-body contact-link">
-                        {resumeData.phoneNumber}
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>

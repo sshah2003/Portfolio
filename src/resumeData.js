@@ -124,16 +124,16 @@ let resumeData = {
     ],
     "portfolio":[
       {
-        "name":"Wordle",
-        "description":"Recreated the popular game Wordle using Swift through the CodePath course",
-        "imgurl":"images/portfolio/wordle.jpg",
-        "url":"https://github.com/sshah2003/Wordle"
+        "name":"Classmate",
+        "description":"A Facebook Marketplace for college students - buy, sell, and trade items within your campus community",
+        "imgurl":"images/portfolio/classmate.png",
+        "url":"https://github.com/sshah2003/Classmate"
       },
       {
-        "name":"Tasks App",
-        "description":"IOS app that allows users to create to-do lists and interact with them, as well as view them on a calendar view which keeps consistent with the to-do list.",
+        "name":"AI Sports Betting Model",
+        "description":"Machine learning model that analyzes sports data to predict game outcomes and betting opportunities",
         "imgurl":"images/portfolio/todolist.jpg",
-        "url":"https://github.com/sshah2003/Tasks-App"
+        "url":"https://github.com/sshah2003/AI-Sports-Betting"
       },
       {
         "name":"FireLine",

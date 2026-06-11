@@ -1,0 +1,28 @@
+:root {
+  /* WMATA palette */
+  --orange: #d77f00;
+  --blue: #0077c0;
+  --silver: #919d9d;
+  --green: #00b140;
+  --red: #bf0d3e;
+
+  /* Surfaces */
+  --bg: #0c0e13;
+  --bg-raised: #14171e;
+  --surface: #171b23;
+  --surface-2: #1e232d;
+  --border: rgba(255, 255, 255, 0.09);
+  --text: #f2f3f5;
+  --muted: #9aa1ab;
+  --faint: #6a717c;
+
+  /* Map */
+  --map-bg: #0c0e13;
+  --river: #11202c;
+  --station-ring: #0c0e13;
+
+  --font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --radius: 14px;
+  --hud-h: 64px;
+  --shadow: 0 16px 48px rgba(0, 0, 0, 0.55);
+}

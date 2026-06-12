@@ -1,28 +1,33 @@
 :root {
-  /* WMATA palette */
-  --orange: #d77f00;
-  --blue: #0077c0;
-  --silver: #919d9d;
-  --green: #00b140;
-  --red: #bf0d3e;
+  /* Metro line accents — tuned for dark backgrounds */
+  --m-red: #ff5a6a;
+  --m-orange: #ffa040;
+  --m-blue: #4da3ff;
+  --m-green: #2fd575;
+  --m-yellow: #ffd23f;
+  --m-silver: #aeb6bf;
 
   /* Surfaces */
-  --bg: #0c0e13;
-  --bg-raised: #14171e;
-  --surface: #171b23;
-  --surface-2: #1e232d;
-  --border: rgba(255, 255, 255, 0.09);
-  --text: #f2f3f5;
-  --muted: #9aa1ab;
-  --faint: #6a717c;
+  --bg: #0a0d14;
+  --bg-2: #0e121b;
+  --surface: #131826;
+  --surface-2: #1a2030;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.14);
+  --text: #f4f6f9;
+  --muted: #9aa3b2;
+  --faint: #6b7484;
 
-  /* Map */
-  --map-bg: #0c0e13;
-  --river: #11202c;
-  --station-ring: #0c0e13;
+  --font:
+    -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
+  --mono: 'SF Mono', ui-monospace, 'Cascadia Code', Menlo, Consolas, monospace;
 
-  --font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  --radius: 14px;
-  --hud-h: 64px;
-  --shadow: 0 16px 48px rgba(0, 0, 0, 0.55);
+  --radius: 16px;
+  --radius-sm: 11px;
+  --shadow: 0 18px 50px rgba(0, 0, 0, 0.5);
+  --topbar-h: 60px;
+
+  --rail-w: 88px; /* desktop side rail */
+  --container: 1080px;
 }

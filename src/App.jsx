@@ -1,65 +1,41 @@
-import { useEffect } from 'react';
-import { AnimatePresence } from 'framer-motion';
-import { MetroMap } from './map/MetroMap.jsx';
-import { stationById } from './data/stations.js';
-import { useHashSync } from './hooks/useHashSync.js';
-import { PortfolioProvider, usePortfolio } from './state/PortfolioContext.jsx';
-import { Controls } from './ui/Controls.jsx';
-import { HUD } from './ui/HUD.jsx';
-import { Legend } from './ui/Legend.jsx';
-import { StationPanel } from './ui/StationPanel.jsx';
-
-function Shell() {
-  const { state, dispatch, nextStation, prevStation, zoomOut } = usePortfolio();
-  useHashSync(state, dispatch);
-
-  useEffect(() => {
-    const onKeyDown = (e) => {
-      if (e.altKey || e.ctrlKey || e.metaKey) return;
-      const tag = e.target.tagName;
-      if (tag === 'INPUT' || tag === 'TEXTAREA') return;
-      if (e.key === 'ArrowRight') {
-        e.preventDefault();
-        nextStation();
-      } else if (e.key === 'ArrowLeft') {
-        e.preventDefault();
-        prevStation();
-      } else if (e.key === 'Escape') {
-        zoomOut();
-      }
-    };
-    window.addEventListener('keydown', onKeyDown);
-    return () => window.removeEventListener('keydown', onKeyDown);
-  }, [nextStation, prevStation, zoomOut]);
-
-  const showPanel = state.viewMode === 'focused' && state.trainState === 'idle';
-  const showHint = state.visitedIds.size <= 1 && state.viewMode === 'overview';
-  const station = stationById(state.currentStationId);
-
-  return (
-    <div className="app">
-      <MetroMap />
-      <HUD />
-      <Legend />
-      <Controls />
-      <AnimatePresence>
-        {showPanel && (
-          <StationPanel key={station.id} station={station} onClose={zoomOut} />
-        )}
-      </AnimatePresence>
-      {showHint && (
-        <div className="hint-toast">
-          Tap a station to ride the train — or use <strong>←</strong> <strong>→</strong> keys
-        </div>
-      )}
-    </div>
-  );
-}
+import { useState } from 'react';
+import { STATIONS } from './data/journey.js';
+import { useJourney } from './hooks/useJourney.js';
+import { TopBar } from './components/TopBar.jsx';
+import { MetroRail, MobileProgress, NowAt } from './components/MetroRail.jsx';
+import { RouteOverlay } from './components/RouteOverlay.jsx';
+import { Hero } from './sections/Hero.jsx';
+import { About } from './sections/About.jsx';
+import { Work } from './sections/Work.jsx';
+import { Projects } from './sections/Projects.jsx';
+import { Skills } from './sections/Skills.jsx';
+import { Startup } from './sections/Startup.jsx';
+import { Teaching } from './sections/Teaching.jsx';
+import { Timeline } from './sections/Timeline.jsx';
+import { Contact } from './sections/Contact.jsx';
 
 export default function App() {
+  const { progress, active, registerSection } = useJourney(STATIONS.length);
+  const [routeOpen, setRouteOpen] = useState(false);
+
   return (
-    <PortfolioProvider>
-      <Shell />
-    </PortfolioProvider>
+    <>
+      <TopBar />
+      <MobileProgress progress={progress} active={active} />
+      <MetroRail progress={progress} active={active} />
+      <NowAt active={active} />
+      <main>
+        <Hero register={registerSection} onViewRoute={() => setRouteOpen(true)} />
+        <About register={registerSection} />
+        <Work register={registerSection} />
+        <Projects register={registerSection} />
+        <Skills register={registerSection} />
+        <Startup register={registerSection} />
+        <Teaching register={registerSection} />
+        <Timeline register={registerSection} />
+        <Contact register={registerSection} />
+      </main>
+      <RouteOverlay open={routeOpen} onClose={() => setRouteOpen(false)} />
+    </>
   );
 }

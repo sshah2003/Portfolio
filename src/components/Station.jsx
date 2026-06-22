@@ -1,15 +1,26 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import { LINE_DOTS, STATIONS } from '../data/journey.js';
+import { useSectionTransition } from '../hooks/useSectionTransition.js';
 
-// Scroll-reveal wrapper. Fades/slides content in the first time it enters
-// the viewport; respects reduced motion.
-export function Reveal({ children, delay = 0, className }) {
+// Entry animations a section can pick from so they no longer all fade-up.
+const VARIANTS = {
+  'fade-up': { hidden: { opacity: 0, y: 26 }, show: { opacity: 1, y: 0 } },
+  'slide-left': { hidden: { opacity: 0, x: 48 }, show: { opacity: 1, x: 0 } },
+  'slide-right': { hidden: { opacity: 0, x: -48 }, show: { opacity: 1, x: 0 } },
+  'scale-in': { hidden: { opacity: 0, scale: 0.9 }, show: { opacity: 1, scale: 1 } },
+  mask: { hidden: { opacity: 0, y: 40, filter: 'blur(8px)' }, show: { opacity: 1, y: 0, filter: 'blur(0px)' } },
+};
+
+// Scroll-reveal wrapper. Fades/slides content in the first time it enters the
+// viewport using the chosen `variant`; respects reduced motion.
+export function Reveal({ children, delay = 0, className, variant = 'fade-up' }) {
   const reduced = useReducedMotion();
+  const v = VARIANTS[variant] || VARIANTS['fade-up'];
   return (
     <motion.div
       className={className}
-      initial={reduced ? false : { opacity: 0, y: 26 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={reduced ? false : v.hidden}
+      whileInView={v.show}
       viewport={{ once: true, margin: '0px 0px -60px 0px' }}
       transition={{ duration: 0.6, delay, ease: [0.22, 0.6, 0.2, 1] }}
     >
@@ -37,10 +48,11 @@ export function StationHeader({ data }) {
 }
 
 // Section scaffold: registers itself with the journey hook, renders the
-// header and a "Next stop" link to the following station.
+// header and a "Next stop" link that rides the cinematic transition.
 export function Station({ index, register, children, className = '', hideHeader = false }) {
   const data = STATIONS[index];
   const next = STATIONS[index + 1];
+  const { goToSection } = useSectionTransition();
   return (
     <section
       id={data.id}
@@ -54,7 +66,14 @@ export function Station({ index, register, children, className = '', hideHeader 
         {children}
         {next && (
           <Reveal className="next-stop-wrap">
-            <a className="next-stop" href={`#${next.id}`}>
+            <a
+              className="next-stop"
+              href={`#${next.id}`}
+              onClick={(e) => {
+                e.preventDefault();
+                goToSection(next.id);
+              }}
+            >
               <span className="next-stop-pulse" style={{ background: next.accent }} />
               Next stop: <strong>{next.station}</strong>
               <span className="next-stop-arrow" aria-hidden="true">→</span>

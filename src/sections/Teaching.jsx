@@ -1,5 +1,20 @@
 import { TEACHING } from '../data/journey.js';
 import { Reveal, Station } from '../components/Station.jsx';
+import { useTilt } from '../components/MagneticButton.jsx';
+
+function Exhibit({ ex }) {
+  const tilt = useTilt(8);
+  return (
+    <figure className="exhibit" {...tilt}>
+      <figcaption className="exhibit-plaque">
+        <span className="exhibit-label">{ex.label}</span>
+        <span className="exhibit-period">{ex.period}</span>
+      </figcaption>
+      <h3>{ex.title}</h3>
+      <p>{ex.body}</p>
+    </figure>
+  );
+}
 
 export function Teaching({ register }) {
   return (
@@ -11,15 +26,8 @@ export function Teaching({ register }) {
       </Reveal>
       <div className="exhibit-grid">
         {TEACHING.exhibits.map((ex, i) => (
-          <Reveal key={ex.label} delay={0.07 * i}>
-            <figure className="exhibit">
-              <figcaption className="exhibit-plaque">
-                <span className="exhibit-label">{ex.label}</span>
-                <span className="exhibit-period">{ex.period}</span>
-              </figcaption>
-              <h3>{ex.title}</h3>
-              <p>{ex.body}</p>
-            </figure>
+          <Reveal key={ex.label} delay={0.07 * i} variant="mask">
+            <Exhibit ex={ex} />
           </Reveal>
         ))}
       </div>

@@ -30,4 +30,27 @@
 
   --rail-w: 88px; /* desktop side rail */
   --container: 1080px;
+
+  /* NYC MTA subway bullet colors — accent flourishes */
+  --nyc-red: #ee352e;
+  --nyc-blue: #0039a6;
+  --nyc-orange: #ff6319;
+  --nyc-green: #00933c;
+  --nyc-yellow: #fccc0a;
+
+  /* Basketball motif */
+  --bball-orange: #ee6730;
+  --bball-line: #c25027;
+  --court: #b56a36;
+  --court-2: #9c5526;
+  --court-line: rgba(255, 255, 255, 0.55);
+
+  /* Interactive flourishes */
+  --cursor: #4da3ff;
+  --wheel-size: 56px;
+
+  /* z-index scale */
+  --z-curtain: 120; /* GTA-style section transition, above everything */
+  --z-overlay: 80;
+  --z-cursor: 200;
 }

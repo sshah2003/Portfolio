@@ -1,11 +1,13 @@
 import { useTransform, motion } from 'framer-motion';
 import { STATIONS } from '../data/journey.js';
+import { useSectionTransition } from '../hooks/useSectionTransition.js';
 
 // Desktop: fixed left rail showing the whole route. The train marker rides
 // scroll progress; dots are anchor links with hover/focus tooltips.
 export function MetroRail({ progress, active }) {
   const n = STATIONS.length;
   const trainTop = useTransform(progress, (v) => `${(v / (n - 1)) * 100}%`);
+  const { goToSection } = useSectionTransition();
 
   return (
     <nav className="rail" aria-label="Route navigation">
@@ -17,6 +19,10 @@ export function MetroRail({ progress, active }) {
           <a
             key={s.id}
             href={`#${s.id}`}
+            onClick={(e) => {
+              e.preventDefault();
+              goToSection(s.id);
+            }}
             className={`rail-stop ${i === active ? 'is-active' : ''} ${i < active ? 'is-passed' : ''}`}
             style={{ top: `${(i / (n - 1)) * 100}%`, '--accent': s.accent }}
             aria-label={`${s.station} — ${s.nav}`}

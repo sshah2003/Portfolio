@@ -1,59 +1,40 @@
-import { useState } from 'react';
-import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { TIMELINE } from '../data/journey.js';
 import { Reveal, Station } from '../components/Station.jsx';
 
-function TimelineItem({ item, open, onToggle, reduced, isLast }) {
-  const id = `tl-${item.org.replace(/\W+/g, '-')}-${item.period.slice(0, 8).replace(/\W+/g, '')}`;
-  return (
-    <li className={`tl-item ${isLast ? 'is-last' : ''}`} style={{ '--accent': item.accent }}>
-      <span className="tl-dot" aria-hidden="true" />
-      <button className="tl-toggle" onClick={onToggle} aria-expanded={open} aria-controls={id}>
-        <span className="tl-role">{item.role}</span>
-        <span className="tl-org">{item.org}</span>
-        <span className="tl-period">{item.period}</span>
-      </button>
-      <AnimatePresence initial={false}>
-        {open && (
-          <motion.div
-            id={id}
-            className="tl-body"
-            initial={reduced ? { opacity: 0 } : { height: 0, opacity: 0 }}
-            animate={reduced ? { opacity: 1 } : { height: 'auto', opacity: 1 }}
-            exit={reduced ? { opacity: 0 } : { height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: [0.3, 0, 0.2, 1] }}
-          >
-            <ul>
-              {item.details.map((d) => (
-                <li key={d.slice(0, 18)}>{d}</li>
-              ))}
-            </ul>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </li>
-  );
-}
-
+// Horizontal, scroll-snap "subway line" of stops you ride/drag through —
+// replaces the old vertical accordion so the section reads less linearly.
 export function Timeline({ register }) {
-  const [openIdx, setOpenIdx] = useState(0);
-  const reduced = useReducedMotion();
   return (
     <Station index={7} register={register} className="timeline">
       <Reveal delay={0.05}>
-        <ol className="tl">
-          {TIMELINE.map((item, i) => (
-            <TimelineItem
-              key={item.org + item.period}
-              item={item}
-              reduced={reduced}
-              isLast={i === TIMELINE.length - 1}
-              open={openIdx === i}
-              onToggle={() => setOpenIdx(openIdx === i ? null : i)}
-            />
-          ))}
-        </ol>
+        <p className="section-intro tl-intro">
+          The line so far — scroll sideways to ride it. <span aria-hidden="true">→</span>
+        </p>
       </Reveal>
+
+      <div className="tl-h-scroll" role="list">
+        <div className="tl-h-line" aria-hidden="true" />
+        {TIMELINE.map((item, i) => (
+          <Reveal
+            key={item.org + item.period}
+            className="tl-h-reveal"
+            delay={0.06 * i}
+            variant="slide-left"
+          >
+            <article className="tl-h-item" role="listitem" style={{ '--accent': item.accent }}>
+              <span className="tl-h-dot" aria-hidden="true" />
+              <span className="tl-h-period">{item.period}</span>
+              <h3 className="tl-h-role">{item.role}</h3>
+              <p className="tl-h-org">{item.org}</p>
+              <ul className="tl-h-details">
+                {item.details.map((d) => (
+                  <li key={d.slice(0, 18)}>{d}</li>
+                ))}
+              </ul>
+            </article>
+          </Reveal>
+        ))}
+      </div>
     </Station>
   );
 }

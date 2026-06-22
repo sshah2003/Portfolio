@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { WORK } from '../data/journey.js';
 import { Reveal, Station } from '../components/Station.jsx';
+import { SplitFlap } from '../components/SplitFlap.jsx';
 
 function WorkCard({ card, open, onToggle, reduced }) {
   return (
@@ -52,7 +53,7 @@ export function Work({ register }) {
           </div>
           {WORK.board.map(([name, status]) => (
             <div className="arrivals-row" key={name}>
-              <span className="arrivals-name">{name}</span>
+              <SplitFlap className="arrivals-name" text={name} />
               <span className="arrivals-dots" aria-hidden="true" />
               <span className="arrivals-status">{status}</span>
             </div>

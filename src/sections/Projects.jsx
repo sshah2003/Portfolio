@@ -1,12 +1,17 @@
 import { PROJECTS } from '../data/journey.js';
 import { Reveal, Station } from '../components/Station.jsx';
+import { useTilt } from '../components/MagneticButton.jsx';
+
+// Jersey numbers for the "starting lineup" of upcoming projects.
+const JERSEYS = [23, 30, 7, 11, 3, 24, 6, 33];
 
 export function Projects({ register }) {
   const { featured, upcoming } = PROJECTS;
+  const tilt = useTilt(7);
   return (
     <Station index={3} register={register} className="projects">
-      <Reveal delay={0.05}>
-        <article className="fare-card">
+      <Reveal delay={0.05} variant="scale-in">
+        <article className="fare-card" {...tilt}>
           <div className="fare-card-top">
             <div>
               <p className="fare-card-kicker">Featured project · Fare card</p>
@@ -38,13 +43,13 @@ export function Projects({ register }) {
       </Reveal>
 
       <Reveal delay={0.12}>
-        <p className="boarding-label">Now boarding</p>
+        <p className="boarding-label">Starting lineup · now boarding</p>
       </Reveal>
       <div className="boarding-grid">
         {upcoming.map((p, i) => (
-          <Reveal key={p.name} delay={0.05 * i}>
-            <div className="boarding-card">
-              <span className="boarding-dot" />
+          <Reveal key={p.name} delay={0.05 * i} variant="slide-left">
+            <div className="boarding-card lineup-card">
+              <span className="lineup-num" aria-hidden="true">{JERSEYS[i % JERSEYS.length]}</span>
               <h4>{p.name}</h4>
               <p>{p.note}</p>
             </div>

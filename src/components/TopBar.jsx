@@ -1,15 +1,18 @@
 import { PROFILE } from '../data/profile.js';
 import { Icon } from './icons.jsx';
+import { TabBar } from './TabBar.jsx';
 
-export function TopBar() {
+export function TopBar({ active, onJump }) {
   return (
     <header className="topbar">
-      <a className="topbar-brand" href="#union-station">
-        <span className="topbar-bullet">iOS</span>
-        <span className="topbar-name">Sohil Shah</span>
+      <a className="topbar-name" href="#" onClick={(e) => { e.preventDefault(); onJump(0); }}>
+        Sohil Shah
       </a>
+
+      <TabBar active={active} onJump={onJump} />
+
       <div className="topbar-right">
-        <nav className="topbar-links" aria-label="Social links">
+        <nav className="topbar-social" aria-label="Social links">
           {PROFILE.links.map((link) => (
             <a
               key={link.id}
@@ -23,7 +26,7 @@ export function TopBar() {
             </a>
           ))}
         </nav>
-        <a className="btn btn-resume" href={PROFILE.resumeUrl} download="Sohil-Shah-Resume.pdf">
+        <a className="topbar-resume" href={PROFILE.resumeUrl} download="Sohil-Shah-Resume.pdf">
           Résumé
         </a>
       </div>

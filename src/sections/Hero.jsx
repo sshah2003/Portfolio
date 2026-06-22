@@ -1,60 +1,45 @@
-import { motion, useReducedMotion } from 'framer-motion';
-import { HERO, STATIONS } from '../data/journey.js';
+import { HERO } from '../data/journey.js';
 import { PROFILE } from '../data/profile.js';
+import { Panel, Item } from '../components/Panel.jsx';
+import { useGoTo } from '../context/TabsContext.js';
 
-export function Hero({ register, onViewRoute }) {
-  const reduced = useReducedMotion();
-  const fade = (delay) => ({
-    initial: reduced ? false : { opacity: 0, y: 24 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.7, delay, ease: [0.22, 0.6, 0.2, 1] },
-  });
+export function Hero({ direction }) {
+  const goTo = useGoTo();
 
   return (
-    <section id="union-station" ref={register(0)} className="hero" aria-label="Union Station — Intro">
-      <div className="container hero-inner">
-        <motion.p className="hero-eyebrow" {...fade(0.05)}>
-          <span className="hero-eyebrow-dot" /> Union Station · {PROFILE.location}
-        </motion.p>
+    <Panel id="intro" index={0} direction={direction} className="hero">
+      <Item className="hero-available" as="p">
+        <i aria-hidden="true" /> Washington, DC · Available for new opportunities
+      </Item>
 
-        <motion.h1 className="hero-name" {...fade(0.15)}>
-          Sohil Shah
-        </motion.h1>
+      <Item className="hero-name-wrap">
+        <h1 className="hero-name">Sohil Shah</h1>
+      </Item>
 
-        <motion.p className="hero-role" {...fade(0.25)}>
-          <span className="hero-line-badge">iOS</span>
-          {PROFILE.title} at {PROFILE.employer}
-        </motion.p>
+      <Item className="hero-role" as="p">
+        iOS Engineer at <b>{PROFILE.employer}</b>
+      </Item>
 
-        <motion.p className="hero-tagline" {...fade(0.35)}>
-          {HERO.tagline}
-        </motion.p>
+      <Item className="hero-tagline" as="p">
+        {HERO.tagline}
+      </Item>
 
-        <motion.div className="hero-actions" {...fade(0.45)}>
-          <a className="btn btn-primary" href="#metro-center">
-            Start the ride
-            <span aria-hidden="true"> ↓</span>
-          </a>
-          <button className="btn btn-ghost" onClick={onViewRoute}>
-            View my route
-          </button>
-        </motion.div>
+      <Item className="actions">
+        <button className="btn btn-primary" onClick={() => goTo(2)}>
+          View my work
+        </button>
+        <button className="btn" onClick={() => goTo(6)}>
+          Get in touch
+        </button>
+      </Item>
 
-        {/* Animated metro line across the hero */}
-        <motion.div className="hero-track" {...fade(0.6)} aria-hidden="true">
-          <div className="hero-track-line">
-            {STATIONS.map((s, i) => (
-              <span
-                key={s.id}
-                className="hero-tick"
-                style={{ left: `${(i / (STATIONS.length - 1)) * 100}%`, background: s.accent }}
-              />
-            ))}
-            {!reduced && <span className="hero-train" />}
-          </div>
-          <p className="hero-track-caption">Doors opening — scroll to begin the journey</p>
-        </motion.div>
-      </div>
-    </section>
+      <Item className="hero-detail" as="p">
+        <span>iOS</span>
+        <span aria-hidden="true">·</span>
+        <span>Swift · SwiftUI · UIKit</span>
+        <span aria-hidden="true">·</span>
+        <span>Shipping since 2024</span>
+      </Item>
+    </Panel>
   );
 }

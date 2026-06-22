@@ -1,29 +1,26 @@
 import { ABOUT } from '../data/journey.js';
-import { Reveal, Station } from '../components/Station.jsx';
+import { Panel, Item } from '../components/Panel.jsx';
 
-export function About({ register }) {
+export function About({ direction }) {
   return (
-    <Station index={1} register={register} className="about">
-      <div className="about-grid">
-        <Reveal className="about-copy" delay={0.05}>
-          {ABOUT.paragraphs.map((p) => (
-            <p key={p.slice(0, 20)}>{p}</p>
-          ))}
-        </Reveal>
-        <Reveal className="about-side" delay={0.15}>
-          <div className="about-card">
-            <p className="about-card-label">Travels with</p>
-            <ul>
-              {ABOUT.chips.map((c) => (
-                <li key={c}>
-                  <span className="about-chip-dot" />
-                  {c}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </Reveal>
+    <Panel id="about" index={1} eyebrow="About" direction={direction} className="about">
+      <div className="about-copy">
+        {ABOUT.paragraphs.map((p) => (
+          <Item as="p" key={p.slice(0, 24)}>
+            {p}
+          </Item>
+        ))}
       </div>
-    </Station>
+      <Item className="about-interests">
+        <p className="about-interests-label">What I gravitate toward</p>
+        <div className="chip-row">
+          {ABOUT.interests.map((c) => (
+            <span className="chip" key={c}>
+              {c}
+            </span>
+          ))}
+        </div>
+      </Item>
+    </Panel>
   );
 }

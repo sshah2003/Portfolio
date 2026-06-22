@@ -1,33 +1,41 @@
 :root {
-  /* Metro line accents — tuned for dark backgrounds */
-  --m-red: #ff5a6a;
-  --m-orange: #ffa040;
-  --m-blue: #4da3ff;
-  --m-green: #2fd575;
-  --m-yellow: #ffd23f;
-  --m-silver: #aeb6bf;
+  /* Dark surfaces */
+  --bg: #0a0a0c;
+  --bg-1: #0c0c0f;
+  --bg-2: #0e0e12;
+  --bg-3: #101015;
+  --surface: rgba(255, 255, 255, 0.028);
+  --line: rgba(255, 255, 255, 0.09);
+  --line-strong: rgba(255, 255, 255, 0.16);
 
-  /* Surfaces */
-  --bg: #0a0d14;
-  --bg-2: #0e121b;
-  --surface: #131826;
-  --surface-2: #1a2030;
-  --border: rgba(255, 255, 255, 0.08);
-  --border-strong: rgba(255, 255, 255, 0.14);
-  --text: #f4f6f9;
-  --muted: #9aa3b2;
-  --faint: #6b7484;
+  /* Text */
+  --text: #f3f3f5;
+  --muted: #9a9aa6;
+  --faint: #62626e;
 
+  /* Accent */
+  --accent: #7c8cff;
+  --accent-2: #a78bfa;
+  --accent-soft: rgba(124, 140, 255, 0.14);
+  --accent-grad: linear-gradient(135deg, #7c8cff 0%, #a78bfa 100%);
+
+  /* Type — display serif for personality, system sans for body */
+  --font-display: 'Instrument Serif', Georgia, 'Times New Roman', serif;
   --font:
     -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto,
     'Helvetica Neue', Arial, sans-serif;
   --mono: 'SF Mono', ui-monospace, 'Cascadia Code', Menlo, Consolas, monospace;
 
-  --radius: 16px;
-  --radius-sm: 11px;
-  --shadow: 0 18px 50px rgba(0, 0, 0, 0.5);
-  --topbar-h: 60px;
+  /* Spacing */
+  --s-1: 6px;
+  --s-2: 12px;
+  --s-3: 20px;
+  --s-4: 32px;
+  --s-5: 52px;
+  --s-6: 84px;
 
-  --rail-w: 88px; /* desktop side rail */
-  --container: 1080px;
+  /* Layout */
+  --topbar-h: 62px;
+  --container: 820px;
+  --radius: 14px;
 }

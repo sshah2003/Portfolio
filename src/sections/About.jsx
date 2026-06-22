@@ -1,9 +1,9 @@
 import { ABOUT } from '../data/journey.js';
 import { Panel, Item } from '../components/Panel.jsx';
 
-export function About() {
+export function About({ direction }) {
   return (
-    <Panel id="about" index={1} eyebrow="About" variant="slide-left" className="about">
+    <Panel id="about" index={1} eyebrow="About" direction={direction} className="about">
       <div className="about-copy">
         {ABOUT.paragraphs.map((p) => (
           <Item as="p" key={p.slice(0, 24)}>

@@ -1,10 +1,10 @@
 :root {
-  /* Dark minimal surfaces — near-black with quiet tonal steps between panels */
+  /* Dark surfaces */
   --bg: #0a0a0c;
   --bg-1: #0c0c0f;
   --bg-2: #0e0e12;
   --bg-3: #101015;
-  --surface: rgba(255, 255, 255, 0.025);
+  --surface: rgba(255, 255, 255, 0.028);
   --line: rgba(255, 255, 255, 0.09);
   --line-strong: rgba(255, 255, 255, 0.16);
 
@@ -13,17 +13,20 @@
   --muted: #9a9aa6;
   --faint: #62626e;
 
-  /* A single restrained accent */
+  /* Accent */
   --accent: #7c8cff;
+  --accent-2: #a78bfa;
   --accent-soft: rgba(124, 140, 255, 0.14);
+  --accent-grad: linear-gradient(135deg, #7c8cff 0%, #a78bfa 100%);
 
-  /* Type */
+  /* Type — display serif for personality, system sans for body */
+  --font-display: 'Instrument Serif', Georgia, 'Times New Roman', serif;
   --font:
     -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto,
     'Helvetica Neue', Arial, sans-serif;
   --mono: 'SF Mono', ui-monospace, 'Cascadia Code', Menlo, Consolas, monospace;
 
-  /* Spacing scale */
+  /* Spacing */
   --s-1: 6px;
   --s-2: 12px;
   --s-3: 20px;
@@ -32,7 +35,7 @@
   --s-6: 84px;
 
   /* Layout */
-  --container: 780px;
+  --topbar-h: 62px;
+  --container: 820px;
   --radius: 14px;
-  --nav-w: 64px;
 }

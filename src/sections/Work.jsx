@@ -1,9 +1,9 @@
 import { WORK } from '../data/journey.js';
 import { Panel, Item } from '../components/Panel.jsx';
 
-export function Work() {
+export function Work({ direction }) {
   return (
-    <Panel id="work" index={2} eyebrow="Work" variant="fade-up" className="work">
+    <Panel id="work" index={2} eyebrow="Work" direction={direction} className="work">
       <Item>
         <div className="work-org">
           <h2>{WORK.org}</h2>
@@ -15,7 +15,10 @@ export function Work() {
       <ul className="work-list">
         {WORK.highlights.map((h) => (
           <Item as="li" className="work-item" key={h.name}>
-            <h4>{h.name}</h4>
+            <h4>
+              {h.name}
+              <span className="work-arrow" aria-hidden="true">→</span>
+            </h4>
             <p>{h.detail}</p>
           </Item>
         ))}

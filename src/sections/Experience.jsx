@@ -1,9 +1,9 @@
 import { EXPERIENCE } from '../data/journey.js';
 import { Panel, Item } from '../components/Panel.jsx';
 
-export function Experience() {
+export function Experience({ direction }) {
   return (
-    <Panel id="experience" index={5} eyebrow="Experience" variant="draw-down" className="experience">
+    <Panel id="experience" index={5} eyebrow="Experience" direction={direction} className="experience">
       <Item>
         <h2 className="title">The path so far.</h2>
       </Item>

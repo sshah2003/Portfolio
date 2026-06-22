@@ -1,56 +1,99 @@
 import { createContext, useContext } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 
-// Distinct-but-quiet entrance per panel. Each maps to how its content's
-// items animate in when the screen scrolls into view.
-const VARIANTS = {
-  'fade-up': { opacity: 0, y: 16 },
-  'slide-left': { opacity: 0, x: -28 },
-  'slide-right': { opacity: 0, x: 28 },
-  'scale-in': { opacity: 0, scale: 0.96 },
-  'draw-down': { opacity: 0, y: -14 },
-};
-
 const ItemContext = createContext(null);
 
-// Animated child. Sections wrap each block they want to reveal in <Item>.
-export function Item({ children, className, as = 'div' }) {
+// Animated child — each block inside a panel uses <Item> to inherit the
+// panel's stagger container.
+export function Item({ children, className, as = 'div', style }) {
   const variants = useContext(ItemContext);
   const Comp = motion[as] || motion.div;
   return (
-    <Comp className={className} variants={variants}>
+    <Comp className={className} variants={variants} style={style}>
       {children}
     </Comp>
   );
 }
 
-export function Panel({ id, index, eyebrow, variant = 'fade-up', children, className = '' }) {
-  const reduced = useReducedMotion();
+// Per-section enter/exit variants. Each section has a distinct "feel".
+// direction prop ('fwd' | 'bwd') controls the horizontal offset.
+export const PANEL_TRANSITIONS = {
+  intro: {
+    enter: (dir) => ({ opacity: 0, scale: 1.03, x: dir === 'fwd' ? 20 : -20 }),
+    exit:  (dir) => ({ opacity: 0, scale: 0.97, x: dir === 'fwd' ? -20 : 20 }),
+    duration: 0.5,
+  },
+  about: {
+    enter: (dir) => ({ opacity: 0, x: dir === 'fwd' ? 40 : -40, filter: 'blur(4px)' }),
+    exit:  (dir) => ({ opacity: 0, x: dir === 'fwd' ? -40 : 40, filter: 'blur(4px)' }),
+    duration: 0.45,
+  },
+  work: {
+    enter: (dir) => ({ opacity: 0, y: dir === 'fwd' ? 24 : -24 }),
+    exit:  (dir) => ({ opacity: 0, y: dir === 'fwd' ? -24 : 24 }),
+    duration: 0.45,
+  },
+  projects: {
+    enter: () => ({ opacity: 0, scale: 0.94 }),
+    exit:  () => ({ opacity: 0, scale: 1.04 }),
+    duration: 0.5,
+  },
+  skills: {
+    enter: (dir) => ({ opacity: 0, x: dir === 'fwd' ? 50 : -50 }),
+    exit:  (dir) => ({ opacity: 0, x: dir === 'fwd' ? -50 : 50 }),
+    duration: 0.42,
+  },
+  experience: {
+    enter: (dir) => ({ opacity: 0, y: dir === 'fwd' ? -20 : 20 }),
+    exit:  (dir) => ({ opacity: 0, y: dir === 'fwd' ? 20 : -20 }),
+    duration: 0.48,
+  },
+  contact: {
+    enter: () => ({ opacity: 0 }),
+    exit:  () => ({ opacity: 0 }),
+    duration: 0.6,
+  },
+};
 
-  const hidden = reduced ? { opacity: 0 } : VARIANTS[variant] || VARIANTS['fade-up'];
+export function Panel({ id, index, eyebrow, children, className = '', direction = 'fwd' }) {
+  const reduced = useReducedMotion();
+  const cfg = PANEL_TRANSITIONS[id] || PANEL_TRANSITIONS.intro;
+
+  const initial  = reduced ? { opacity: 0 }    : cfg.enter(direction);
+  const animate  = { opacity: 1, scale: 1, x: 0, y: 0, filter: 'blur(0px)' };
+  const exit     = reduced ? { opacity: 0 }    : cfg.exit(direction);
+  const transition = { duration: cfg.duration, ease: [0.22, 0.6, 0.2, 1] };
+
+  // Per-item stagger inside the panel (content cascades in after panel arrives)
   const itemVariants = {
-    hidden,
+    hidden: reduced ? { opacity: 0 } : { opacity: 0, y: 10 },
     show: {
-      opacity: 1,
-      x: 0,
-      y: 0,
-      scale: 1,
-      transition: { duration: 0.55, ease: [0.22, 0.6, 0.2, 1] },
+      opacity: 1, y: 0,
+      transition: { duration: 0.42, ease: [0.22, 0.6, 0.2, 1] },
     },
   };
   const container = {
     hidden: {},
-    show: { transition: { staggerChildren: reduced ? 0 : 0.08, delayChildren: 0.05 } },
+    show: { transition: { staggerChildren: reduced ? 0 : 0.07, delayChildren: 0.06 } },
   };
 
   return (
-    <section id={id} className={`panel ${className}`}>
+    <motion.section
+      id={id}
+      key={id}
+      role="tabpanel"
+      aria-labelledby={`tab-${id}`}
+      className={`panel ${className}`}
+      initial={initial}
+      animate={animate}
+      exit={exit}
+      transition={transition}
+    >
       <motion.div
         className="panel-inner"
         variants={container}
         initial="hidden"
-        whileInView="show"
-        viewport={{ once: false, amount: 0.4 }}
+        animate="show"
       >
         <ItemContext.Provider value={itemVariants}>
           {eyebrow && (
@@ -62,6 +105,6 @@ export function Panel({ id, index, eyebrow, variant = 'fade-up', children, class
           {children}
         </ItemContext.Provider>
       </motion.div>
-    </section>
+    </motion.section>
   );
 }

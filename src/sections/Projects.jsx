@@ -2,12 +2,12 @@ import { PROJECTS } from '../data/journey.js';
 import { PROFILE } from '../data/profile.js';
 import { Panel, Item } from '../components/Panel.jsx';
 
-export function Projects() {
+export function Projects({ direction }) {
   const { featured, more } = PROJECTS;
   const github = PROFILE.links.find((l) => l.id === 'github').url;
 
   return (
-    <Panel id="projects" index={3} eyebrow="Projects" variant="scale-in" className="projects">
+    <Panel id="projects" index={3} eyebrow="Projects" direction={direction} className="projects">
       <Item className="project">
         <div className="project-top">
           <h3>{featured.name}</h3>
@@ -37,6 +37,7 @@ export function Projects() {
       </Item>
 
       <Item className="project-more">
+        <p className="project-more-label">Also building</p>
         {more.map((m) => (
           <div className="project-more-row" key={m.name}>
             <b>{m.name}</b>

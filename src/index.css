@@ -49,11 +49,17 @@ a {
 .pf-nav-links {
   display: flex;
   gap: 32px;
+  align-items: center;
+}
+
+.pf-nav-section-links {
+  display: flex;
+  gap: 32px;
   list-style: none;
   align-items: center;
 }
 
-.pf-nav-links a {
+.pf-nav-section-links a {
   font-size: 14px;
   font-weight: 500;
   color: #71717a;
@@ -61,7 +67,7 @@ a {
   letter-spacing: -0.1px;
 }
 
-.pf-nav-links a:hover {
+.pf-nav-section-links a:hover {
   color: #fafafa;
 }
 
@@ -861,7 +867,7 @@ a {
     padding: 16px 20px;
   }
 
-  .pf-nav-links {
+  .pf-nav-section-links {
     display: none;
   }
 

@@ -1,26 +1,22 @@
-import React, { Component } from 'react';
-import Header from './components/Header';
-import About from './components/About';
-import Resume from './components/Resume';
-import Portfolio from './components/Portfolio';
-import Testimonials from  './components/Testimonials';
-import ContactUs from './components/ContactUs';
+import React from 'react';
+import Nav from './components/Header';
+import Hero from './components/About';
+import Experience from './components/Resume';
+import ClassmateSection from './components/Testimonials';
+import Projects from './components/Portfolio';
 import Footer from './components/Footer';
 import resumeData from './resumeData';
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <Header resumeData={resumeData}/>
-        <About resumeData={resumeData}/>
-        <Resume resumeData={resumeData}/>
-        <Portfolio resumeData={resumeData}/>
-        <Testimonials resumeData={resumeData}/>
-        <ContactUs resumeData={resumeData}/>
-        <Footer resumeData={resumeData}/>
-      </div>
-    );
-  }
-}
+import './index.css';
 
-export default App;
+export default function App() {
+  return (
+    <div>
+      <Nav resumeData={resumeData} />
+      <Hero resumeData={resumeData} />
+      <Experience resumeData={resumeData} />
+      <ClassmateSection />
+      <Projects resumeData={resumeData} />
+      <Footer resumeData={resumeData} />
+    </div>
+  );
+}

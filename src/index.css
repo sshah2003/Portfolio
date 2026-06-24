@@ -1,15 +1,881 @@
-body {
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  
-  -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #09090b;
+  color: #fafafa;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ───── NAV ───── */
+.pf-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 18px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(9, 9, 11, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.pf-nav-logo {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: #fafafa;
+}
+
+.pf-nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  align-items: center;
+}
+
+.pf-nav-links a {
+  font-size: 14px;
+  font-weight: 500;
+  color: #71717a;
+  transition: color 0.2s;
+  letter-spacing: -0.1px;
+}
+
+.pf-nav-links a:hover {
+  color: #fafafa;
+}
+
+.pf-nav-cta {
+  background: #fafafa !important;
+  color: #09090b !important;
+  padding: 9px 20px;
+  border-radius: 9px;
+  font-size: 14px;
+  font-weight: 700 !important;
+  transition: background 0.2s !important;
+  letter-spacing: -0.2px;
+}
+
+.pf-nav-cta:hover {
+  background: #e4e4e7 !important;
+}
+
+/* ───── HERO ───── */
+.pf-hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 140px 24px 100px;
+  position: relative;
+  overflow: hidden;
+}
+
+.pf-hero::before {
+  content: '';
+  position: absolute;
+  top: -160px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 900px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.pf-hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  color: #818cf8;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 7px 16px;
+  border-radius: 100px;
+  margin-bottom: 32px;
+}
+
+.pf-dot {
+  width: 6px;
+  height: 6px;
+  background: #818cf8;
+  border-radius: 50%;
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.pf-hero-name {
+  font-size: clamp(60px, 11vw, 104px);
+  font-weight: 900;
+  letter-spacing: -4px;
+  line-height: 0.95;
+  color: #fafafa;
+  margin-bottom: 24px;
+}
+
+.pf-hero-title {
+  font-size: clamp(18px, 2.5vw, 24px);
+  font-weight: 400;
+  color: #71717a;
+  margin-bottom: 12px;
+  letter-spacing: -0.2px;
+  line-height: 1.5;
+}
+
+.pf-hero-title strong {
+  color: #d4d4d8;
+  font-weight: 600;
+}
+
+.pf-hero-location {
+  font-size: 14px;
+  color: #3f3f46;
+  margin-bottom: 52px;
+  letter-spacing: 0.02em;
+}
+
+.pf-social-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.pf-social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #111113;
+  border: 1px solid #27272a;
+  color: #a1a1aa;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.18s;
+  cursor: pointer;
+  letter-spacing: -0.1px;
+}
+
+.pf-social-btn:hover {
+  background: #1c1c1f;
+  color: #fafafa;
+  border-color: #3f3f46;
+}
+
+.pf-hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #fafafa;
+  color: #09090b;
+  padding: 15px 34px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  transition: all 0.18s;
+  letter-spacing: -0.3px;
+}
+
+.pf-hero-cta:hover {
+  background: #e4e4e7;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.4);
+}
+
+/* ───── SECTION WRAPPER ───── */
+.pf-section {
+  padding: 100px 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.pf-section-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #3f3f46;
+  margin-bottom: 10px;
+}
+
+.pf-section-title {
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 900;
+  letter-spacing: -2px;
+  color: #fafafa;
+  margin-bottom: 64px;
+  line-height: 1.05;
+}
+
+/* ───── EXPERIENCE ───── */
+.pf-exp-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 56px;
+  align-items: center;
+  padding: 48px;
+  background: #0f0f11;
+  border: 1px solid #1a1a1e;
+  border-radius: 24px;
+  margin-bottom: 20px;
+  transition: border-color 0.2s;
+}
+
+.pf-exp-item:hover {
+  border-color: #27272a;
+}
+
+.pf-exp-item.featured {
+  border-color: rgba(59, 130, 246, 0.2);
+  background: linear-gradient(135deg, #09090b 0%, #0d1117 100%);
+}
+
+.pf-exp-item.featured:hover {
+  border-color: rgba(59, 130, 246, 0.4);
+}
+
+.pf-exp-tag {
+  display: inline-block;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  color: #60a5fa;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 6px;
+  margin-bottom: 14px;
+}
+
+.pf-exp-tag.green {
+  background: rgba(34, 197, 94, 0.1);
+  border-color: rgba(34, 197, 94, 0.2);
+  color: #4ade80;
+}
+
+.pf-exp-company {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+  color: #fafafa;
+  margin-bottom: 4px;
+  line-height: 1.1;
+}
+
+.pf-exp-role {
+  font-size: 15px;
+  font-weight: 500;
+  color: #71717a;
+  margin-bottom: 4px;
+}
+
+.pf-exp-period {
+  font-size: 13px;
+  color: #3f3f46;
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+
+.pf-exp-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pf-exp-bullets li {
+  font-size: 14px;
+  color: #71717a;
+  line-height: 1.65;
+  padding-left: 20px;
+  position: relative;
+}
+
+.pf-exp-bullets li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: #3b82f6;
+  font-size: 12px;
+  top: 3px;
+}
+
+.pf-exp-bullets li.green-bullet::before {
+  color: #4ade80;
+}
+
+/* ───── iPHONE MOCKUP ───── */
+.pf-iphone-wrap {
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pf-iphone {
+  width: 200px;
+  height: 400px;
+  background: #121212;
+  border-radius: 40px;
+  border: 7px solid #252525;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.06),
+    0 32px 72px rgba(0,0,0,0.7),
+    inset 0 0 0 1px rgba(255,255,255,0.03);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.pf-iphone-notch {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 88px;
+  height: 24px;
+  background: #121212;
+  border-radius: 0 0 18px 18px;
+  z-index: 10;
+}
+
+.pf-iphone-screen {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Washington Post iPhone */
+.pf-wp-header {
+  background: #0f0f0f;
+  padding: 30px 14px 12px;
+  border-bottom: 1.5px solid #cc0000;
+}
+
+.pf-wp-wordmark {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 10px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.pf-wp-wordmark span {
+  font-size: 6px;
+  color: #888;
+  display: block;
+  font-family: 'Inter', sans-serif;
+  text-transform: none;
+  margin-top: 1px;
+}
+
+.pf-wp-content {
+  background: #fff;
+  flex: 1;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow: hidden;
+}
+
+.pf-wp-article {
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 8px;
+}
+
+.pf-wp-section-tag {
+  font-size: 6px;
+  font-weight: 800;
+  color: #cc0000;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+
+.pf-wp-headline {
+  font-family: Georgia, serif;
+  font-size: 9px;
+  font-weight: 700;
+  color: #111;
+  line-height: 1.3;
+  margin-bottom: 3px;
+}
+
+.pf-wp-byline {
+  font-size: 6px;
+  color: #888;
+}
+
+.pf-wp-ad-bar {
+  background: #f0f0f0;
+  border-radius: 4px;
+  padding: 6px 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+}
+
+.pf-wp-ad-label {
+  font-size: 6px;
+  font-weight: 700;
+  color: #3b82f6;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.pf-wp-ad-dot {
+  width: 4px;
+  height: 4px;
+  background: #22c55e;
+  border-radius: 50%;
+}
+
+.pf-wp-ad-text {
+  font-size: 6px;
+  color: #555;
+}
+
+/* George Mason iPhone */
+.pf-gmu-header {
+  background: #006633;
+  padding: 30px 14px 12px;
+}
+
+.pf-gmu-wordmark {
+  font-size: 9px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.03em;
+  line-height: 1.2;
+}
+
+.pf-gmu-wordmark span {
+  font-size: 6px;
+  color: rgba(255,255,255,0.6);
+  display: block;
+  font-weight: 500;
+  margin-top: 1px;
+}
+
+.pf-gmu-content {
+  background: #f8f8f8;
+  flex: 1;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  overflow: hidden;
+}
+
+.pf-gmu-course-card {
+  background: #fff;
+  border-radius: 6px;
+  padding: 8px;
+  border-left: 3px solid #006633;
+}
+
+.pf-gmu-course-title {
+  font-size: 8px;
+  font-weight: 800;
+  color: #111;
+  margin-bottom: 2px;
+}
+
+.pf-gmu-course-sub {
+  font-size: 6px;
+  color: #888;
+  line-height: 1.4;
+}
+
+.pf-swift-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: linear-gradient(135deg, #f05138, #ff8c69);
+  border-radius: 4px;
+  padding: 5px 8px;
+  margin-top: 2px;
+}
+
+.pf-swift-label {
+  font-size: 7px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.pf-gmu-stat-row {
+  display: flex;
+  gap: 5px;
+}
+
+.pf-gmu-stat {
+  flex: 1;
+  background: #fff;
+  border-radius: 6px;
+  padding: 6px;
+  text-align: center;
+}
+
+.pf-gmu-stat-num {
+  font-size: 12px;
+  font-weight: 900;
+  color: #006633;
+  line-height: 1;
+}
+
+.pf-gmu-stat-label {
+  font-size: 5px;
+  color: #888;
+  margin-top: 1px;
+}
+
+/* ───── CLASSMATE SECTION ───── */
+.pf-classmate {
+  background: linear-gradient(140deg, #2e1065 0%, #3730a3 45%, #1e1b4b 100%);
+  padding: 100px 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.pf-classmate::before {
+  content: '';
+  position: absolute;
+  top: -120px;
+  right: -80px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(167, 139, 250, 0.2) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.pf-classmate::after {
+  content: '';
+  position: absolute;
+  bottom: -80px;
+  left: -60px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.pf-classmate-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 72px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.pf-classmate-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.pf-classmate-icon {
+  width: 150px;
+  height: 150px;
+  border-radius: 34px;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.12),
+    0 24px 64px rgba(0,0,0,0.5),
+    0 2px 0 rgba(255,255,255,0.06) inset;
+  flex-shrink: 0;
+  background: #0d1117;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.pf-classmate-icon-pill {
+  position: absolute;
+  bottom: 24px;
+  left: 16px;
+  right: 16px;
+  height: 22px;
+  background: #5b8def;
+  border-radius: 100px;
+  opacity: 0.9;
+}
+
+.pf-classmate-icon-letter {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 100px;
+  font-weight: bold;
+  color: #cdd5e0;
+  line-height: 1;
+  position: relative;
+  z-index: 1;
+  margin-bottom: -12px;
+}
+
+.pf-classmate-app-label {
+  font-size: 11px;
+  color: rgba(255,255,255,0.35);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.pf-classmate-content {}
+
+.pf-classmate-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: rgba(255,255,255,0.75);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 100px;
+  margin-bottom: 22px;
+}
+
+.pf-classmate-title {
+  font-size: clamp(44px, 7vw, 72px);
+  font-weight: 900;
+  letter-spacing: -2.5px;
+  color: #fff;
+  line-height: 0.95;
+  margin-bottom: 16px;
+}
+
+.pf-classmate-tagline {
+  font-size: 20px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 18px;
+  line-height: 1.5;
+  letter-spacing: -0.2px;
+}
+
+.pf-classmate-desc {
+  font-size: 16px;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.75;
+  margin-bottom: 36px;
+  max-width: 520px;
+}
+
+.pf-classmate-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+  color: #3730a3;
+  padding: 15px 32px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 800;
+  transition: all 0.2s;
+  letter-spacing: -0.3px;
+}
+
+.pf-classmate-link:hover {
+  background: rgba(255,255,255,0.92);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.35);
+}
+
+/* ───── PROJECTS ───── */
+.pf-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.pf-project-card {
+  background: #0f0f11;
+  border: 1px solid #1a1a1e;
+  border-radius: 18px;
+  padding: 28px;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.pf-project-card:hover {
+  background: #141416;
+  border-color: #27272a;
+  transform: translateY(-2px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.5);
+}
+
+.pf-project-icon {
+  width: 40px;
+  height: 40px;
+  background: #18181b;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  font-size: 20px;
+}
+
+.pf-project-name {
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+  color: #fafafa;
+  margin-bottom: 8px;
+}
+
+.pf-project-desc {
+  font-size: 13px;
+  color: #52525b;
+  line-height: 1.65;
+  flex: 1;
+  margin-bottom: 22px;
+}
+
+.pf-project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #3b82f6;
+  transition: gap 0.18s;
+  letter-spacing: -0.1px;
+}
+
+.pf-project-card:hover .pf-project-link {
+  gap: 10px;
+}
+
+/* ───── FOOTER ───── */
+.pf-footer-wrap {
+  border-top: 1px solid #111113;
+  padding: 52px 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.pf-footer-left {
+  font-size: 14px;
+  color: #3f3f46;
+  line-height: 1.6;
+}
+
+.pf-footer-left strong {
+  color: #71717a;
+  font-weight: 600;
+}
+
+.pf-footer-social {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+.pf-footer-social a {
+  color: #3f3f46;
+  transition: color 0.18s;
+  display: flex;
+  align-items: center;
+}
+
+.pf-footer-social a:hover {
+  color: #fafafa;
+}
+
+/* ───── RESPONSIVE ───── */
+@media (max-width: 900px) {
+  .pf-exp-item {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    padding: 36px;
+  }
+
+  .pf-iphone-wrap {
+    display: none;
+  }
+
+  .pf-classmate-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .pf-classmate-left {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .pf-nav {
+    padding: 16px 20px;
+  }
+
+  .pf-nav-links {
+    display: none;
+  }
+
+  .pf-social-row {
+    gap: 8px;
+  }
+
+  .pf-social-btn {
+    padding: 9px 14px;
+    font-size: 13px;
+  }
+
+  .pf-footer-wrap {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }

@@ -1,22 +1,19 @@
 import React from 'react';
-import Nav from './components/Header';
-import Hero from './components/About';
-import Experience from './components/Resume';
-import ClassmateSection from './components/Testimonials';
-import Projects from './components/Portfolio';
-import Footer from './components/Footer';
-import resumeData from './resumeData';
-import './index.css';
+import { site } from './content';
+import SplitLock from './components/SplitLock';
+import './concepts.css';
 
 export default function App() {
   return (
-    <div>
-      <Nav resumeData={resumeData} />
-      <Hero resumeData={resumeData} />
-      <Experience resumeData={resumeData} />
-      <ClassmateSection />
-      <Projects resumeData={resumeData} />
-      <Footer resumeData={resumeData} />
+    <div className="app concept-split">
+      <nav className="topbar">
+        <span className="topbar-logo">{site.initials}</span>
+        <span className="topbar-title">{site.role}</span>
+        <a className="topbar-cta" href={site.resume} target="_blank" rel="noopener noreferrer">
+          Resume
+        </a>
+      </nav>
+      <SplitLock />
     </div>
   );
 }

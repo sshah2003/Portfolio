@@ -1,26 +1,19 @@
-import React, { Component } from 'react';
-import Header from './components/Header';
-import About from './components/About';
-import Resume from './components/Resume';
-import Portfolio from './components/Portfolio';
-import Testimonials from  './components/Testimonials';
-import ContactUs from './components/ContactUs';
-import Footer from './components/Footer';
-import resumeData from './resumeData';
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <Header resumeData={resumeData}/>
-        <About resumeData={resumeData}/>
-        <Resume resumeData={resumeData}/>
-        <Portfolio resumeData={resumeData}/>
-        <Testimonials resumeData={resumeData}/>
-        <ContactUs resumeData={resumeData}/>
-        <Footer resumeData={resumeData}/>
-      </div>
-    );
-  }
-}
+import React from 'react';
+import { site } from './content';
+import SplitLock from './components/SplitLock';
+import './concepts.css';
 
-export default App;
+export default function App() {
+  return (
+    <div className="app concept-split">
+      <nav className="topbar">
+        <span className="topbar-logo">{site.initials}</span>
+        <span className="topbar-title">{site.role}</span>
+        <a className="topbar-cta" href={site.resume} target="_blank" rel="noopener noreferrer">
+          Resume
+        </a>
+      </nav>
+      <SplitLock />
+    </div>
+  );
+}

@@ -51,9 +51,9 @@ export const entries = [
       'Managed iOS releases and took part in on-call rotations, investigating crashes and resolving production issues.',
     ],
     metrics: [
-      { value: 'Up to 7', label: 'Stories in one feed' },
-      { value: '100 passes', label: 'Bought in the first two weeks' },
-      { value: '3 sections', label: 'A/B tested in the app' },
+      { value: 'Up to 7', label: 'Articles combined in The 7 Live feed' },
+      { value: '100', label: 'One Day Pass purchases in the first two weeks' },
+      { value: '3', label: 'App sections covered by feed A/B tests' },
     ],
     tags: ['SwiftUI', 'UIKit', 'StoreKit 2', 'AVFoundation', 'CarPlay', 'Firebase', 'Analytics', 'A/B Testing'],
   },
@@ -70,7 +70,7 @@ export const entries = [
       'Taught 20+ students to build iOS apps through programming assignments, projects, and quizzes.',
       'Helped students get comfortable with SwiftUI, UIKit, and making API requests.',
     ],
-    metrics: [{ value: '20+ students', label: 'Learning to build iOS apps' }],
+    metrics: [{ value: '20+', label: 'Students taught SwiftUI, UIKit, and API requests' }],
     tags: ['Swift', 'SwiftUI', 'UIKit', 'REST APIs'],
   },
   {
@@ -87,7 +87,7 @@ export const entries = [
       'Built a tool to make ad and article themes easier to understand, helping teams communicate and make decisions faster.',
       'Created analytics tools to show where ads appeared and help teams match them with suitable content.',
     ],
-    metrics: [{ value: '5 teams', label: 'Using better ad tools' }],
+    metrics: [{ value: '5', label: 'Departments supported by the ad-targeting tool' }],
     tags: ['TypeScript', 'Node.js', 'DevTools'],
   },
   {
